@@ -17,7 +17,8 @@ var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-var tableText = [48]
+var tableText = []
+var officials = []
 
 request('https://ballotpedia.org/Maryland_state_executive_offices', function (error, response, html) {
   if (!error && response.statusCode == 200) {
@@ -29,28 +30,25 @@ request('https://ballotpedia.org/Maryland_state_executive_offices', function (er
       const c = $(b).find('td');
       c.each((i, el) => {
           tableText[i] = $(el).text().trim()
-          //console.log(tableText[i])
+          console.log(tableText[i])
       })
+      for(var i = 0; i < 16; i++){
+          //var name = tableText[i*3];
+          //var party = tableText[i*3+1];
+          //var title = tableText[i*3+2];
+          //officials[i] = new Official(name, party, title);
+          //console.log(officials[i])
+          officials.push({
+              "name" : tableText[i*3],
+              "party" : tableText[i*3+1],
+              "title" : tableText[i*3+2]
+          })
+          console.log("this ran" + i)
+          console.log(officials[i])
+      }
     });
   }
 });
-
-class Official {
-    constructor(name, party, title){
-        this.name = name;
-        this.party = party;
-        this.title = tile;
-    }
-}
-
-var officials = [16]
-
-for(var i; i < 16; i++){
-    var name = tableText[i*3];
-    var party = tableText[i*3+1];
-    var title = tableText[i*3+2];
-    officials[i] = new Official(name, party, title);
-}
 
 app.listen(process.env.PORT || '3000', () => {
     console.log(`App listening on port 3000!`)
