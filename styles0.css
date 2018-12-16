@@ -1,0 +1,19 @@
+
+b {
+    font-family: helvetica;
+}
+
+body{
+    background-color: blue;
+    font-size: 14px;
+}
+
+h1{
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+h3{
+    font-size: 1.5em;
+    font-weight: bold;
+}

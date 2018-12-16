@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Maryland 2nd District</title>
+    <link rel="stylesheet" href="./styles.css">
+
+  </head>
+  <body>
+    <div>
+      <figure>
+        <img src="MapMaryland_district2.png" width="50%">
+      </figure>
+      <figcaption>
+          <h1>Maryland 2<sup>st</sup> District</h1>
+          <cite>From NationalAtlas.gov</cite>
+        </figcaption>
+
+    </div>
+
+    <div class = "districts">
+        <h3>Maryland 2<sup>st</sup> District Officials</h3>
+        <!-- <ol>
+            <li><a href="#">District Judge: Party: </a></li>
+            <li><a href="#">Representative: Party: </a></li> -->
+    </div>
+    <div class = "Dist2-people">
+        <ul>
+            {{#each d1}}
+            <li class="list-group-item">
+                <div class="title">{{this.title}}</div>
+                <div class="name">{{this.name}}</div>
+                <div class="party">{{this.party}}</div>
+                <div class="date">{{this.date}}</div>
+                <div class="website">{{this.website}}</div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    <hr>
+
+  </body>
+</html>
